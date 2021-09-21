@@ -273,9 +273,6 @@ polls_tracker_out = polls_trends_combine %>%
   ) %>%
   mutate_if(is.numeric, round, digits=4) %>%
   rbind(polls_2020 %>% filter(!is.na(share)))
-polls_tracker_out %>%
-  write_csv(., "output-data/site-sync/polls-with-trends-2021.csv")
-
 
 # generate precis file
 polls_trends_combine %>%
@@ -308,6 +305,4 @@ polls_tracker_out %>%
       seat_trend = c(246/709, 153/709,94/709, 80/709, 69/709, 67/709),
       imputed=FALSE
     )
-) %>% write_csv(., "output-data/site-sync/topline-polls.csv")
-
-paste0('{"timestamp":',as.integer(Sys.time()),'}') %>% cat(file='output-data/site-sync/timestamp.json')
+) 

@@ -827,12 +827,7 @@ bind_rows(
 party_summaries %>%
   bind_rows(coalition_summaries) %>%
   write_csv(.,'output-data/site-data/election_day_summaries.csv')
-party_summaries %>%
-  bind_rows(coalition_summaries) %>%
-  write_csv(.,'output-data/site-sync/election_day_summaries.csv')
 
-election_day_simulation_data %>% filter(days_until_ed == 0) %>%
-  write_csv(.,'output-data/site-sync/raw_simulations.csv')
 
 nsims = nrow(election_day_simulation_data %>% filter(days_until_ed == 0))
 seat_sims = election_day_simulation_data %>%
@@ -851,18 +846,7 @@ seat_sims = election_day_simulation_data %>%
   mutate(seat_pct = ifelse((party %in% c('cdu','spd','lin') | pct >= 0.05 ) & party != 'oth', pct / seat_denom, 0)) %>%
   mutate(days_until_ed=NULL, election_year=NULL, forecast_date=NULL)
 
-seat_sims %>%
-  mutate(
-    seat_denom = round(seat_denom, 4),
-    pct = round(pct, 4),
-    seat_pct = round(seat_pct, 4)
-  ) %>%
-  pivot_wider(
-    id_cols=c('trial','seat_denom'),
-    names_from='party',
-    values_from=c('pct','seat_pct')
-  ) %>%
-  write_csv(.,'output-data/site-sync/seat-sims.csv')
+
 
 aggregate_coalition_sims = function(data, parties, key) {
   data %>%
@@ -892,24 +876,6 @@ seat_sims_all = bind_rows(
     seat_sims %>% mutate(type='party')
   )
   
-seat_sims_all %>%
-  group_by(party, type, pct_bin=floor(seat_pct * 200) / 200) %>%
-  summarise(
-    seat_sims = n(),
-    seat_sims_share=n() / nsims
-  ) %>%
-  ungroup() %>%
-  merge(
-    seat_sims_all %>% group_by(party, type, pct_bin=floor(pct * 200) / 200) %>%
-      summarise(
-        pct_sims = n(),
-        pct_sims_share = n() / nsims
-      ) %>%
-      ungroup(),
-    by=c('party','type','pct_bin'), all=T
-  ) %>%
-  write_csv(.,'output-data/site-sync/binned-sims.csv')
-
 
 # conditional probabilities
 # - probability that no two-way coalition has a majority. (Pretty high, I assume.)
