@@ -1,4 +1,4 @@
-# Germany federal parliamentary election forecast (Bundestagwahl 2021)
+# Germany federal parliamentary election forecast (Bundestagswahl 2021)
 
 This is a polls-based forecasting model for the 2021 Germany federal elections. This model combines structural "prior" information with an aggregate of publicly released opinion polls to predict the percentage breakdown of proportional party votes (sometimes called "second votes") in the Bundestag. 
 
