@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+bs4 = "*"
+requests = "*"
+pandas = "*"
+numpy = "*"
+lxml = "*"
+html5lib = "*"
+
+[dev-packages]
+ipython = "*"
+ipykernel = "*"
+
+[requires]
+python_version = "3.9"
