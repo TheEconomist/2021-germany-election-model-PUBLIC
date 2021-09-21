@@ -31,7 +31,7 @@ Once everything is setup, you have your choice of scripts to run. Each is locate
 
 3. **`make_forecasts_2021.R`**: This script takes the current polling data and combines the coefficients produced by `train_test_historical_forecasts_glmnet.R` to produce projections of party vote shares and uncertainty intervals for the 2021 cycle. It will output key summary data to the file `/output-data/site-data/election_day_summaries.csv`.
 
-We would be glad to hear of any bugs or recieve other feedback in the Issues tab at the top of the page. 
+We would be glad to hear of any bugs or recieve other feedback via the Issues tab at the top of the page. 
 
 
 # Licence
