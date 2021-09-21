@@ -8,7 +8,7 @@ Details about model methodology can be found [here](https://www.economist.com/gr
 
 The model pipeline uses is based almost entirely on Python and R scripts (run in that order), though you will need to do some setup to enable R to run various models with the [Stan](https://mc-stan.org/) computational backend for Bayesian modeling. The model was most recently run with Python v3.9.6 and R v4.1.1. These can be installed from [python.org](https://www.python.org/) and [r-project.org](https://www.r-project.org/), though might work on earlier versions of R.
 
-To install dependencies, navigate to the root of the directory and run `pipenv install`. You can install pipenv in MacOS via running `pip install pipenv` after you have setup python. You can read more about pip [here](https://pip.pypa.io/en/stable/installation/).
+To install dependencies, navigate to the root of the directory and run `pipenv install`. You can install pipenv in MacOS via `pip` by running `pip install pipenv` after you have setup python. You can read more about pip [here](https://pip.pypa.io/en/stable/installation/) and pipenv [here](https://pipenv.pypa.io/en/latest/).
 
 For R installation, you will need to install packages in the standard fashion and setup the backend to Stan, one statistical language that is called by the model's R scripts. Run this code in your R GUI of choice (we prefer RStudio):
 
