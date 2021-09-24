@@ -1,5 +1,7 @@
 # _The Economist_ Germany federal parliamentary election forecast (Bundestagswahl 2021)
 
+_Last updated September 21st, 2021._
+
 This repository stores R, Python and Stan code to replicate _The Economist_'s polls-based forecasting model for the 2021 Germany federal elections. This model combines structural "prior" information with an aggregate of publicly released opinion polls to predict the percentage breakdown of proportional party votes (sometimes called "second votes") in the Bundestag. 
 
 Details about model methodology can be found [here](https://www.economist.com/graphic-detail/2021/08/10/how-the-economists-german-election-model-works). Daily-updated predictions are located at [this web address](https://www.economist.com/graphic-detail/who-will-succeed-angela-merkel).
